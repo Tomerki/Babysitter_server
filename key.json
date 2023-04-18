@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "babysitter-seminar",
+  "private_key_id": "1fead5a512f4e820da3fb06a27e6a987da27e3b2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDA/pX+SwgHpJO7\nASd3dkgYMInjIKyv8phYOCLnQJn5Tb3gK7l15wD1daGOa+/FW7yJYLQ9C43B7t25\n/71Wuch91jwJsiMwh0/oHqEpZ3OhoXVgdfRRK1vSqogXJ2IwGovp2+ajWT2s5xWc\n4I4j1R3k4tF6Bdvrs0MvTrZdS+H08A+Di8Qs+cVb9Cp3w9h5b8sFgKM9/TcvEtCi\n4oexmyUSo+8B++01qAD7pjfMwIUngVkMQAF7mcaUE+XqjVu0CLi1ZBzfB2bwj8yV\n+JDCngHXGETm4TqqBW+Yo4tzZDg/97guuhvyCQ/DsHKrTWtnqSxwRlzIkgxTG+4r\n8NSXxiKrAgMBAAECggEAWgptEGcRJ/+wrN6s+x9EI4UBz+W+q5gTW5VVM28AZz/O\nBnhf3pIX8G0hIsFY7EsQe0eSz6hESuaWq+CVBZFH6O26tQtXP5zhuvoPVrHdUNtz\nV72wbu47uN23AJZvSOIZxNHDmRJZpAFsI/TgW/diKxdng/aX1C+eeMPQcVal5RAK\nABwJC7SR1oBIVasRL3YuNwKVts25s4VG6y8y2CkcMOoPNtnyLEn+Wj9wePwmgAGT\nrb4x5xlOYfGCmxwjmLU1GGIeMswEfJ7XhfZqT9f1pZtxY5pn3xKmsNjUAiSp22u7\nzKYHv1eDCYaA7pZQGTE9iE5PAWrFAwE76CnOp/qUAQKBgQD9QXkQYs/KFXJfM1J3\nqjU/HknRNsmCMMkZzwx0pBLK73LUaPljH1QxB3u1WX2ZhFXDTy9ARwsvV0rMoCgm\nY8bDauKt3GTwLfGMs0ZTEla+42nPziN1Ro9RsJc6S5u0y7uVqaBLs/joeR/RyfcW\nEm4dRMXEoIoN1dX/ltmkPIU1CwKBgQDDFfMCwxWBi79Kv6ilk9J6YLXX2ATQ+xTY\nlPUJNkps8SwDJZeyW3vHE6paU0XfNg7i5+rYvPg9he3maeMCO9JjBobe9fTsTk/Y\n9oovKxoSE44dOd1sfiphZMUklqFuJ0tYkfIfxTx5iOk5Js1vl+6lIGsZbmm7ZLS6\nH/XozmIM4QKBgDUdczelkbDveJJQ4D3qu8omHxM6615bvwGjtBgOhUZ8m9fCwHMy\nkeTKjf6F61q0L4yL4fwYKldednieKm2KxZgcpbgTHjRlXmDFBL3NfdYBOiL0N+mT\nx+E5KS53xwtPI2OLNOxLrauMI8lLE4BUkzWeQ+AuT2YBcCVvzOuuKb3rAoGACWdK\ncmyi4b6xttGsOGb6s0lsGn5gJQ6lP5dWhF4okj3ByFkMid1dBwiMopP2/z5k000o\nhc/+C0EkaYHbHmVxy7Ip2B908dsIgEXJ/WIPfKWSqRf781nVgyJPWmckWuHsANXw\nHNXuB1GxJD8ZkfJ5313Dq9Mlp5HAIGSf/tvL4CECgYAEGSWxK5g9ZgZVuAAAUfT0\n7Z6HE7y343swKLkg0KTw6axQD9WroVbv3wcew+XxqG7+RCtXNkHbHHNljSQvPeUn\noP1uWhmVm2aGuMF1F9ojSuwTyU8EVYIz+N1oWSnT32Kpcx4a4xW3tmWEI6f9PlfZ\ngkV2QXHg8Og4VgF6hqnmtg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-31j74@babysitter-seminar.iam.gserviceaccount.com",
+  "client_id": "104212046415480149020",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-31j74%40babysitter-seminar.iam.gserviceaccount.com"
+}
