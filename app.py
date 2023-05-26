@@ -43,6 +43,16 @@ def get_item(item_id):
     else:
         return jsonify({'error': 'Item not found'}), 404
 
+# Get a single ite by search field value
+@app.route('/search/<field>/<value>')
+def search_document(field, value):
+    doc = db.collection(request.headers.get('Collection-Name')).where(field, '==', value).limit(1).get()
+    if len(doc) > 0:
+        document = doc[0]
+        return jsonify(document.to_dict())
+    else:
+        return jsonify({'message': 'No matching document found.'})
+    
 # Update an existing item
 @app.route('/items/<item_id>', methods=['PUT'])
 def update_item(item_id):
@@ -58,5 +68,7 @@ def delete_item(item_id):
     return jsonify({'message': 'Item deleted successfully'})
 
 
+    # Return the matching documents as JSON response
+    return jsonify(matching_documents)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
