@@ -13,11 +13,22 @@ db = firestore.client()
 app = Flask(__name__)
 
 # Create a new item
+@app.route('/add_doc/<uid>', methods=['POST'])
+def create_item_by_id(uid):
+    try:
+        data = request.get_json()
+        item_ref = db.collection(request.headers.get('Collection-Name')).document(uid)
+        item_ref.set(data)
+        return jsonify({"status" : 200, "id" : item_ref.id})
+    except Exception as e:
+        print(e)
+        return f"An Error Occurred: {e}"
+    
 @app.route('/add_doc', methods=['POST'])
 def create_item():
     try:
         data = request.get_json()
-        item_ref = db.collection(request.headers.get('Collection-Name')).document()
+        item_ref = db.collection(request.headers.get('Collection-Name')).document(uid)
         item_ref.set(data)
         return jsonify({"status" : 200, "id" : item_ref.id})
     except Exception as e:
