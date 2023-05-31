@@ -104,17 +104,41 @@ def create_item():
     try:
         data = request.get_json()
         item_ref = db.collection(request.headers.get('Collection-Name')).document()
+        timestamp = firestore.SERVER_TIMESTAMP
+        data["created"] = timestamp
+        data["doc_id"] = item_ref.id
         item_ref.set(data)
         return jsonify({"status" : 200, "id" : item_ref.id})
     except Exception as e:
         print(e)
         return f"An Error Occurred: {e}"
 
+# Add to an inner collection of parent/babysitter, by parent's id / babysitter id
+@app.route('/add_inner_collection/<item_id>', methods=['POST'])
+def add_inner_collection(item_id):
+    try:
+        data = request.get_json()
+        collection_name = request.headers.get('Collection-Name')
+        doc_ref = db.collection(collection_name).document(item_id)
+        inner_collection = doc_ref.collection('notification')
+
+        # Add new item to the inner collection
+        item_ref = inner_collection.document()
+        timestamp = firestore.SERVER_TIMESTAMP
+        data["created"] = timestamp
+        data["doc_id"] = item_ref.id
+        item_ref.set(data)
+
+        return jsonify({"status": 200, "id": item_ref.id})
+    except Exception as e:
+        print(e)
+        return f"An Error Occurred: {e}"
+    
 # Get all items
 @app.route('/items', methods=['GET'])
 def get_items():
     items = []
-    for doc in db.collection(request.headers.get('Collection-Name')).stream():
+    for doc in db.collection(request.headers.get('Collection-Name')).order_by('created', direction=firestore.Query.DESCENDING).stream():
         items.append(doc.to_dict())
     return jsonify(items)
 
@@ -137,6 +161,17 @@ def get_item(item_id):
         return jsonify(doc.to_dict())
     else:
         return jsonify({'error': 'Item not found'}), 404
+
+# Get an inner collection by ID
+@app.route('/get_inner_collection/<item_id>', methods=['GET'])
+def get_inner_collection(item_id):
+    items = []
+    collection_name = request.headers.get('Collection-Name')
+    doc_ref = db.collection(collection_name).document(item_id)
+    inner_collection = doc_ref.collection('notification')
+    for doc in inner_collection.stream():
+        items.append(doc.to_dict())
+    return jsonify(items)
 
 # Get a single item by search field value
 @app.route('/search/<field>/<value>')
