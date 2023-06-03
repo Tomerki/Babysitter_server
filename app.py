@@ -28,7 +28,7 @@ def create_item_by_id(uid):
 def create_item():
     try:
         data = request.get_json()
-        item_ref = db.collection(request.headers.get('Collection-Name')).document(uid)
+        item_ref = db.collection(request.headers.get('Collection-Name')).document()
         item_ref.set(data)
         return jsonify({"status" : 200, "id" : item_ref.id})
     except Exception as e:
