@@ -92,21 +92,9 @@ def get_inner_collection(item_id, inner_collection_name):
     collection_name = request.headers.get('Collection-Name')
     doc_ref = db.collection(collection_name).document(item_id)
     inner_collection = doc_ref.collection(inner_collection_name)
-    for doc in inner_collection.stream():
+    for doc in inner_collection.order_by('created', direction=firestore.Query.ASCENDING).stream():
         items.append(doc.to_dict())
     return jsonify(items)
-
-# # Get an inner collection of parent/babysitter, by parent's id / babysitter id
-# @app.route('/get_inner_collection/<item_id>', methods=['GET'])
-# def get_inner_collection(item_id):
-#     items = []
-#     collection_name = request.headers.get('Collection-Name')
-#     print(collection_name)
-#     doc_ref = db.collection(collection_name).document(item_id).collection('notification')
-#     print(doc_ref)
-#     for doc in doc_ref.stream():
-#         items.append(doc.to_dict())
-#     return jsonify(items)
 
 # Get an inner item in collection of parent/babysitter, by parent's id / babysitter id
 @app.route('/get_inner_item_collection/<user_id>/<item_id>/<inner_collection_name>', methods=['GET'])
