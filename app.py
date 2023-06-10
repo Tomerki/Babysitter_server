@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import firebase_admin
 from firebase_admin import credentials, firestore
 import os
+from better_profanity import profanity
 
 # Initialize Firebase App
 cred = credentials.Certificate('key.json')
@@ -239,5 +240,13 @@ def add_element_to_array(item_id):
 
     # Return the matching documents as JSON response
     return jsonify(matching_documents)
+
+@app.route('/check-language', methods=['POST'])
+def check_language():
+    paragraph = request.json['paragraph']
+    has_profanity = profanity.contains_profanity(paragraph)
+    return jsonify({'has_profanity': has_profanity})
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
